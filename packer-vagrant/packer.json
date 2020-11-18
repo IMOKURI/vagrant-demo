@@ -1,0 +1,21 @@
+{
+  "variables": {
+    "provisioner": "provisioners.sh"
+  },
+  "builders": [
+    {
+      "name": "demo",
+      "type": "vagrant",
+      "communicator": "ssh",
+      "provider": "virtualbox",
+      "source_path": "centos/8",
+      "output_dir": "build"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "{{ user `provisioner` }}"
+    }
+  ]
+}
